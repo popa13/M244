@@ -1,0 +1,203 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{enumitem}
+\usepackage[margin=2cm]{geometry}
+
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{multicol}
+
+\usepackage{comment}
+\usepackage{url}
+\usepackage{calc}
+\usepackage{subcaption}
+\usepackage{circledsteps}
+
+\usepackage{array}
+
+\setlength\parindent{0pt}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{2pt}
+\renewcommand{\footrulewidth}{0pt}
+\rfoot{\thepage}
+\lhead{\textsc{Math} 244}
+\chead{\textsc{Homework 7}}
+\rhead{Fall 2023}
+
+\pgfplotsset{compat=1.16}
+
+% MATH commands
+\newcommand{\ga}{\left\langle}
+\newcommand{\da}{\right\rangle}
+\newcommand{\oa}{\left\lbrace}
+\newcommand{\fa}{\right\rbrace}
+\newcommand{\oc}{\left[}
+\newcommand{\fc}{\right]}
+\newcommand{\op}{\left(}
+\newcommand{\fp}{\right)}
+
+\newcommand{\bi}{\mathbf{i}}
+\newcommand{\bj}{\mathbf{j}}
+\newcommand{\bk}{\mathbf{k}}
+\newcommand{\bF}{\mathbf{F}}
+
+\newcommand{\ra}{\rightarrow}
+\newcommand{\Ra}{\Rightarrow}
+
+\newcommand{\sech}{\mathrm{sech}\,}
+\newcommand{\csch}{\mathrm{csch}\,}
+\newcommand{\curl}{\mathrm{curl}\,}
+\newcommand{\dive}{\mathrm{div}\,}
+
+\newcommand{\ve}{\varepsilon}
+\newcommand{\spc}{\vspace*{0.5cm}}
+
+\DeclareMathOperator{\Ran}{Ran}
+\DeclareMathOperator{\Dom}{Dom}
+
+\newcommand{\exo}[3]{\noindent\textcolor{red}{\fbox{\textbf{Section {#1}, Problem {#2}}}\hrulefill   \textbf{({#3} Pts})}\vspace*{10pt}}
+
+\begin{document}
+\thispagestyle{empty}
+	\noindent \hrulefill \newline
+	MATH-244 \hfill Pierre-Olivier Paris{\'e}\newline
+	Homework 7 Solutions \hfill Fall 2023\newline \vspace*{-0.7cm}
+	
+	\noindent\hrulefill
+	
+	\spc
+
+	\exo{16.1}{4}{5}
+	\\
+	We can create a table with five values for $x$ and five values for $y$ along the sides of a square $[-3, 3] \times [-3, 3]$.
+
+	\begin{center}
+		\begin{tabular}{c||c|c|c|c|c} 
+        $y, x$ & $-3$ & $-1.5$ & $0$ & $1.5$ & $3$ \\\hline\hline
+        $-3$ &  $\left\langle -3, -6 \right\rangle$ & $\left\langle -1.5, -4.5 \right\rangle$ & $\left\langle 0, -3 \right\rangle$ & $\left\langle 1.5, -1.5 \right\rangle$ & $\left\langle 3, 0 \right\rangle$\\\hline
+		$-1.5$ &  $\left\langle -3, -4.5 \right\rangle$ & $\left\langle -1.5, -3.0 \right\rangle$ & $\left\langle 0, -1.5 \right\rangle$ & $\left\langle 1.5, 0.0 \right\rangle$ & $\left\langle 3, 1.5 \right\rangle$\\\hline
+		$0$ &  $\left\langle -3, -3 \right\rangle$ & $\left\langle -1.5, -1.5 \right\rangle$ & $\left\langle 0, 0 \right\rangle$ & $\left\langle 1.5, 1.5 \right\rangle$ & $\left\langle 3, 3 \right\rangle$\\\hline
+		$1.5$ &  $\left\langle -3, -1.5 \right\rangle$ & $\left\langle -1.5, 0.0 \right\rangle$ & $\left\langle 0, 1.5 \right\rangle$ & $\left\langle 1.5, 3.0 \right\rangle$ & $\left\langle 3, 4.5 \right\rangle$\\\hline
+		$3$ &  $\left\langle -3, 0 \right\rangle$ & $\left\langle -1.5, 1.5 \right\rangle$ & $\left\langle 0, 3 \right\rangle$ & $\left\langle 1.5, 4.5 \right\rangle$ & $\left\langle 3, 6 \right\rangle$
+		\end{tabular}
+	\end{center}
+
+	Here is a picture of the vector field:
+		\begin{center}
+		\includegraphics[scale=0.90]{figure_1.png}
+		\end{center}
+
+
+
+	\exo{16.1}{6}{5}
+	\\ 
+	We can create a table with five values for $x$ and five values for $y$ along the sides of a square $[-3, 3] \times [-3, 3]$.
+	\begin{center}
+		\begin{tabular}{c||c|c|c|c|c} 
+        $y, x$ & $-3$ & $-1.5$ & $0$ & $1.5$ & $3$ \\ \hline\hline
+        $-3$ &  $\left\langle -0.71, 0.71 \right\rangle$ & $\left\langle -0.45, 0.89 \right\rangle$ & $\left\langle 0.00, 1.00 \right\rangle$ & $\left\langle 0.45, 0.89 \right\rangle$ & $\left\langle 0.71, 0.71 \right\rangle$ \\ \hline
+		$-1.5$ &  $\left\langle -0.89, 0.45 \right\rangle$ & $\left\langle -0.71, 0.71 \right\rangle$ & $\left\langle 0.00, 1.00 \right\rangle$ & $\left\langle 0.71, 0.71 \right\rangle$ & $\left\langle 0.89, 0.45 \right\rangle$ \\ \hline
+		$0$ &  $\left\langle -1.00, 0.00 \right\rangle$ & $\left\langle -1.00, 0.00 \right\rangle$ & $\nexists$ & $\left\langle 1.00, 0.00 \right\rangle$ & $\left\langle 1.00, 0.00 \right\rangle$ \\ \hline
+		$1.5$ &  $\left\langle -0.89, -0.45 \right\rangle$ & $\left\langle -0.71, -0.71 \right\rangle$ & $\left\langle 0.00, -1.00 \right\rangle$ & $\left\langle 0.71, -0.71 \right\rangle$ & $\left\langle 0.89, -0.45 \right\rangle$\\ \hline
+		$3$ &  $\left\langle -0.71, -0.71 \right\rangle$ & $\left\langle -0.45, -0.89 \right\rangle$ & $\left\langle 0.00, -1.00 \right\rangle$ & $\left\langle 0.45, -0.89 \right\rangle$ & $\left\langle 0.71, -0.71 \right\rangle$\\ \hline
+		\end{tabular}
+	\end{center}
+
+	Here is a picture of the vector field:
+		\begin{center}
+		\includegraphics[scale=0.5]{figure_2.png}
+		\end{center}
+
+	\exo{16.1}{8}{5}
+	\\ 
+	This vector field is simple to visualize. It consists of parallel vectors to the $x$-axis point in the same direction as the $x$-axis if $z > 0$ and in the opposite direction as the $x$-axis if $z < 0$.
+
+	Here is a picture of the vector field:
+		\begin{center}
+		\includegraphics[scale=0.80]{figure_3.png}
+		\end{center}
+
+	\exo{16.1}{12}{5} 
+	\\ 
+	We see that, when $y = x$, $\vec{F} (x, y) = \left\langle x, 0 \right\rangle$. Therefore, along the line $y = x$, we should see vectors pointing only in the direction (or the opposite direction) of the $x$-axis. We can see this property in the plot label III. 
+
+	\spc
+
+	\exo{16.1}{14}{5} 
+	\\ 
+	Fixing $x = x_0$ to be constant, we see that $\vec{F} (x_0, y) = \left\langle \cos (x_0 + y) , x_0 \right\rangle$. Therefore, when moving along the vectical line $x = x_0$, the $x$-component oscillates like the function $\cos (x_0 + y)$. We observe this in the plot labeled II. 
+
+	\spc 
+
+	\exo{16.1}{16}{5}
+	\\ 
+	When $z = 0$, we see that $\vec{F} (x ,y, 0) = \left\langle 1 , 2, 0 \right\rangle$. In other words, the is no $z$-component and this is observed in the plot labeled I.
+
+	\spc 
+
+	\exo{16.1}{24}{10}
+	\\ 
+	We have $f_x = 2xye^{y/z}$, $f_z = -\frac{x^2 y^2}{z^2} e^{y/z}$, and
+		\[
+			f_y = x^2 e^{y/z} + \frac{x^2 y}{z} e^{y/z} .
+		\]
+	Therefore,
+		\[
+			\vec{\nabla} f = \left\langle 2xye^{y/z} , \Big( x^2 + \frac{x^2 y}{z} \Big) e^{y/z} , - \frac{x^2 y^2}{z^2} e^{y/z} \right\rangle .
+		\]
+
+	\spc 
+
+	\exo{16.1}{26}{5}
+	\\ 
+	The gradient is given by $\vec{\nabla} f = \left\langle f_x , f_y \right\rangle$. We have 
+		\[
+			f_x = \frac{\partial}{\partial x} \Big( \frac{1}{2} (x^2 - y^2 ) \Big) = x
+		\]
+	and
+		\[
+			f_y = \frac{\partial}{\partial y} \Big( \frac{1}{2} (x^2 - y^2 ) \Big) = -y .
+		\]
+	Therefore, $\vec{\nabla}{f} = \left\langle x, -y \right\rangle$.
+
+	Here is a sketch of the gradient of $f$ and some level curves of $f$:
+		\begin{center}
+		\includegraphics[scale=0.6]{figure_4.png}
+		\end{center}
+
+
+	\exo{16.1}{32}{5} 
+	\\
+	We will restrict the points $(x, y)$ to be on certain curves. If we assume that $x^2 + y^2 = c$ is constant, so that $(x, y)$ lies on a circle of radius $\sqrt{c}$, then
+		\[
+			\vec{\nabla} f = \left\langle \frac{ \cos \sqrt{c}}{\sqrt{c}} x , \frac{ \cos \sqrt{c}}{\sqrt{c}} y \right\rangle = \frac{\cos \sqrt{c}}{\sqrt{c}} \left\langle x ,y \right\rangle .
+		\]
+	Therefore, the gradient points in the same direction as the vector $\left\langle x , y \right\rangle$, scaled by the fact $\cos \sqrt{x} / \sqrt{x}$. If $c = \pi^2 / 4$, then $\cos \sqrt{c} = 0$ and therefore $\vec{F} (x, y) = \left\langle 0, 0 \right\rangle$ on the circle $x^2 + y^2 = c$. Now the radius of the circle is approximately $1.57$ and we can see that this feature is present in the plot I.
+	
+	\vfill
+
+\hfill \textsc{Total:} 50 Pts.
+
+\end{document}
+
+The gradient of $f$ is
+		\[
+			\vec{\nabla} f = \left\langle \frac{x \cos \sqrt{x^2 + y^2}}{\sqrt{x^2 + y^2}} , \frac{y \cos \sqrt{x^2 + y^2}}{\sqrt{x^2 + y^2}} \right\rangle .
+		\]
+	Recall that the gradient is perpendicular to the level curves of $f$. So, if $c$ is a real number such that $c = f(x, y)$, then $c = \sin \sqrt{x^2 + y^2}$. However, the function $\sin$ only takes value between $-1$ and $1$, so we must restrict the values of $c$ to $[-1, 1]$. Let $d$ be the value such that $\sin (d) = c$. Then, because the function $\sin$ is $2\pi$-periodique, we see that
+		\[
+			d + 2k\pi = \sqrt{x^2 + y^2}
+		\]
+	for some angle $d + 2k \pi$ positive. Squaring both sides:
+		\[
+			(d + 2k \pi )^2 = x^2 + y^2
+		\]
+	which corresponds to a family of circles of radius $d + 2k \pi$ and centered at the origin.
+
+	The two plots in which we can see vectors perpendicular to circles are I and III. In III, we see that the level curves are circles with growing radius, but in I, we see that the radius of the circle vary ``randomly''. In fact, in I, the radius of each circle varies exactly like $d + 2k \pi$, where $d$ is such that $\sin (d) = c$ and $k$ is any integer such that $d + 2k \pi > 0$. Therefore, the plot representing the gradient of $f$ is I. 

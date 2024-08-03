@@ -1,0 +1,180 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{enumitem}
+\usepackage[margin=2cm]{geometry}
+
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{multicol}
+
+\usepackage{comment}
+\usepackage{url}
+\usepackage{calc}
+\usepackage{subcaption}
+
+\usepackage{array}
+
+\setlength\parindent{0pt}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{2pt}
+\renewcommand{\footrulewidth}{0pt}
+\rfoot{\thepage}
+\lhead{\textsc{Math} 244}
+\chead{\textsc{Homework 4}}
+\rhead{Fall 2023}
+
+\pgfplotsset{compat=1.16}
+
+% MATH commands
+\newcommand{\ga}{\left\langle}
+\newcommand{\da}{\right\rangle}
+\newcommand{\oa}{\left\lbrace}
+\newcommand{\fa}{\right\rbrace}
+\newcommand{\oc}{\left[}
+\newcommand{\fc}{\right]}
+\newcommand{\op}{\left(}
+\newcommand{\fp}{\right)}
+
+\newcommand{\bi}{\mathbf{i}}
+\newcommand{\bj}{\mathbf{j}}
+\newcommand{\bk}{\mathbf{k}}
+\newcommand{\bF}{\mathbf{F}}
+
+\newcommand{\ra}{\rightarrow}
+\newcommand{\Ra}{\Rightarrow}
+
+\newcommand{\sech}{\mathrm{sech}\,}
+\newcommand{\csch}{\mathrm{csch}\,}
+\newcommand{\curl}{\mathrm{curl}\,}
+\newcommand{\dive}{\mathrm{div}\,}
+
+\newcommand{\ve}{\varepsilon}
+\newcommand{\spc}{\vspace*{0.5cm}}
+
+\DeclareMathOperator{\Ran}{Ran}
+\DeclareMathOperator{\Dom}{Dom}
+
+\newcommand{\exo}[3]{\noindent\textcolor{red}{\fbox{\textbf{Section {#1}, Problem {#2}}}\hrulefill   \textbf{({#3} Pts})}\vspace*{10pt}}
+
+\begin{document}
+\thispagestyle{empty}
+	\noindent \hrulefill \newline
+	MATH-244 \hfill Pierre-Olivier Paris{\'e}\newline
+	Homework 4 Solutions \hfill Fall 2023\newline \vspace*{-0.7cm}
+	
+	\noindent\hrulefill
+	
+	\spc
+
+	\exo{15.4}{6}{10}
+
+	The description of the domain is
+		\begin{align*}
+		D = \{ (x, y) \, : \, 0 \leq y \leq 2/5 , \, y/2 \leq x \leq 1 - 2y \} .
+		\end{align*} 
+	The mass is given by
+		\begin{align*}
+		m = \iint_D x \, dA = \int_0^{2/5} \int_{y/2}^{1 - 2y} x \, dx dy = \frac{2}{25} = 0.08 .
+		\end{align*}
+
+	The center of mass is $(\overline{x} , \overline{y} )$, where $\overline{x} = M_y / m$ and $\overline{y} = M_x / m$. We have
+		\begin{align*}
+		M_y = \iint_D x (x) \, dA = \int_0^{2/5} \int_{y/2}^{1 - 2y} x^2 \, dx dy = \frac{3}{750} = 0.041333
+		\end{align*}
+	and 
+		\begin{align*}
+		M_x = \iint_D y (x) \, dA = \int_0^{2/5} \int_{y/2}^{1 - 2y} xy \, dx dy = \frac{7}{750} \approx 0.005417 .
+		\end{align*}
+	Therefore,
+		\begin{align*}
+		\overline{x} = \frac{3/750}{2/25} = \frac{31}{60} \approx 0.5167 \quad \text{and} \quad \overline{y} = \frac{7/750}{2/25} = \frac{7}{60} \approx 0.1167 . \tag*{$\triangle$}
+		\end{align*}
+	
+	\exo{15.4}{14}{10}
+
+	In polar coordinates, 
+		\begin{align*}
+		D = \{ (r, \theta ) \, : \, 1 \leq r \leq 2 , 0 \leq \theta \leq \pi .\}
+		\end{align*} 
+
+	The mass density is $\rho (x, y) = 1 / \sqrt{x^2 + y^2}$. Using polar coordinates,
+		\begin{align*}
+		m = \iint_D \frac{1}{\sqrt{x^2 + y^2}} \, dA = \int_0^\pi \int_1^2 \frac{1}{r} r \, dr d\theta 
+		= \int_0^\pi \int_1^2 \, dr d\theta = \pi .
+		\end{align*}
+
+	Also, we have
+		\begin{align*}
+		M_y = \int_0^\pi \int_1^2 \frac{r \cos \theta}{r} r \, dr d\theta = \int_0^\pi \int_1^2 r \cos \theta \, dr d\theta = 0
+		\end{align*} 
+	and
+		\begin{align*}
+		M_x = \int_0^\pi \int_1^2 \frac{r \sin \theta}{r} r \, dr d\theta = \int_0^\pi \int_1^2 r \sin \theta \, dr d\theta = 3 .
+		\end{align*} 
+	Therefore,
+		\begin{align*}
+		\overline{x} = \frac{M_y}{m} = 0 \quad \text{ and } \quad \overline{y} = \frac{M_x}{m} = \frac{3}{\pi} .
+		\end{align*}
+	\underline{Note:} It is possible to deduce from the symmetry of the region $D$ that $M_y = 0$ and the following fact: the mapping $x \mapsto x / \sqrt{x^2 + y^2}$ is an odd function.
+	
+	\newpage
+
+	\exo{15.6}{6}{10}
+
+	Denote by $I$ the value of the integral. So
+		\begin{align*}
+		I = \int_0^1 \int_0^1 \frac{z}{y + 1} \left. \Big( x \Big) \right|_0^{\sqrt{1 - z^2}} \, dz dy &= \int_0^1 \int_0^1 \frac{z}{y + 1} (\sqrt{1 - z^2}) \, dz dy \\
+		&= \int_0^1 \int_1^0 \frac{-(1/2)\sqrt{u}}{y + 1} \, du dy \\
+		&= (1/2)\int_0^1 \int_0^1 \frac{\sqrt{u}}{y + 1} \, du dy \\
+		&= (1/2)\Big( \int_0^1 \frac{1}{y + 1} \, dy \Big) \Big( \int_0^1 u^{1/2} \, du \Big) \\
+		&= (1/2)\left. \Big( \ln (y + 1) \Big) \right|_0^1 \left. \Big( \frac{2u^{3/2}}{3} \Big) \right|_0^1 \\
+		&= (1/3) \ln 2 . \tag*{$\triangle$}
+		\end{align*}
+
+	\exo{15.6}{14}{10}
+
+	The description of $E$ is
+		\begin{align*}
+		E = \{ (x, y, z) \, : \, 0 \leq y \leq 2 , -1 \leq x \leq 1 , x^2 - 1 \leq z \leq 1 - x^2 \} .
+		\end{align*} 
+	Therefore, we obtain
+		\begin{align*}
+		\iiint_E (x - y) \, dV = \int_0^2 \int_{-1}^1 \int_{x^2 - 1}^{1 - x^2} (x - y) \, dz dx dy &= \int_0^2 \int_{-1}^1 (x - y) \left. \Big( z \Big) \right|_{x^2 - 1}^{1 - x^2} \, dx dy \\
+		&= \int_0^2 \int_{-1}^1 (x - y) (2 - 2x^2) \, dx dy \\
+		&= 2 \int_0^2 \int_{-1}^1 (x - x^3 - y + x^2 y) \, dx dy \\
+		&= 2 \int_0^2 (x^2 /2 - x^4 /4 - xy + x^3 y /3) |_{-1}^1 \, dy \\
+		&= 2\int_0^2 -2y + 2y/3 \, dy \\
+		&= 2(-y^2 + y^2 / 3)|_0^2 \\
+		&= -16 / 3 \approx -5.3333 . \tag*{$\triangle$}
+		\end{align*} 
+
+
+\exo{15.6}{22}{10}
+
+The $y$ value is bounded by $y = -1$ and $y = 4 - z$. Isolating $z$ from the equation of the cylinder, we get $z = -\sqrt{4 - x^2}$ as a lower bound and $z = \sqrt{4 - x^2}$ as an upper bound, with $-1 \leq x \leq 1$. Therefore,
+	\begin{align*}
+	E = \{ (x, y, z) \, : \, -1 \leq x \leq 1 , -1 \leq y \leq 4 - z , -\sqrt{4 - x^2} \leq z \leq \sqrt{4 - x^2} \}
+	\end{align*}
+Therefore, 
+	\begin{align*}
+	Vol (E) = \iiint_E \, dV &= \int_{-1}^1 \int_{-\sqrt{4 - x^2}}^{\sqrt{4 - x^2}} \int_{-1}^{4 - z} \, dy dz dx \\
+	&= \int_{-1}^1 \int_{-\sqrt{4 - x^2}}^{\sqrt{4 - x^2}} (5 - z) \, dz dx .
+	\end{align*} 
+The region in the $xz$-plane is a disk (inside a circle of radius $2$). We can therefore use the polar coordinates with $x = r \cos \theta$ and $z = r \sin \theta$ and
+	\begin{align*}
+	Vol (E) &= \int_{0}^{2\pi} \int_0^2 (5 - r \sin \theta ) r \, dr d\theta \\
+	&= \int_0^{2\pi} (5r^2 /2 - (r^3 /3) \sin \theta ) |_0^2 \, d\theta \\
+	&= \int_0^{2\pi} 10 - (8/3) \sin \theta \, d\theta \\
+	&= \left. \Big( 10 \theta + (1/3) \cos \theta \Big) \right|_0^{2\pi} \\
+	&= 20 \pi . \tag*{$\triangle$}
+	\end{align*} 
+
+
+
+\end{document}

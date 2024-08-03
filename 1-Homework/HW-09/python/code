@@ -1,0 +1,18 @@
+#!/usr/bin/python3.6
+# -*coding:utf-8 -*
+
+import sympy
+import math
+import numpy
+
+import matplotlib.pyplot as plt
+import scipy.integrate as spi
+
+integrand = lambda x, y : 2*x - 2*y 
+
+bounds_y = lambda x : [0, math.cos(x)]
+bounds_x = lambda : [-math.pi/2, math.pi/2]
+
+result, error = spi.nquad(integrand, [bounds_y, bounds_x])
+print(result)
+

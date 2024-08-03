@@ -1,0 +1,124 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{enumitem}
+\usepackage[margin=2cm]{geometry}
+
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{multicol}
+
+\usepackage{comment}
+\usepackage{url}
+\usepackage{calc}
+\usepackage{subcaption}
+\usepackage{circledsteps}
+\usepackage{wrapfig}
+\usepackage{array}
+
+\setlength\parindent{0pt}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{2pt}
+\renewcommand{\footrulewidth}{0pt}
+\rfoot{\thepage}
+\lhead{\textsc{Math} 244}
+\chead{\textsc{Homework 13}}
+\rhead{Fall 2023}
+
+\pgfplotsset{compat=1.16}
+
+% MATH commands
+\newcommand{\ga}{\left\langle}
+\newcommand{\da}{\right\rangle}
+\newcommand{\oa}{\left\lbrace}
+\newcommand{\fa}{\right\rbrace}
+\newcommand{\oc}{\left[}
+\newcommand{\fc}{\right]}
+\newcommand{\op}{\left(}
+\newcommand{\fp}{\right)}
+
+\newcommand{\bi}{\mathbf{i}}
+\newcommand{\bj}{\mathbf{j}}
+\newcommand{\bk}{\mathbf{k}}
+\newcommand{\bF}{\mathbf{F}}
+
+\newcommand{\ra}{\rightarrow}
+\newcommand{\Ra}{\Rightarrow}
+
+\newcommand{\sech}{\mathrm{sech}\,}
+\newcommand{\csch}{\mathrm{csch}\,}
+\newcommand{\curl}{\mathrm{curl}\,}
+\newcommand{\dive}{\mathrm{div}\,}
+
+\newcommand{\ve}{\varepsilon}
+\newcommand{\spc}{\vspace*{0.5cm}}
+
+\DeclareMathOperator{\Ran}{Ran}
+\DeclareMathOperator{\Dom}{Dom}
+
+\newcommand{\exo}[3]{\noindent\textcolor{red}{\fbox{\textbf{Section {#1}, Problem {#2}}}\hrulefill   \textbf{({#3} Pts})}\vspace*{10pt}}
+
+\begin{document}
+\thispagestyle{empty}
+	\noindent \hrulefill \newline
+	MATH-244 \hfill Pierre-Olivier Paris{\'e}\newline
+	Homework 11 Solutions \hfill Fall 2023\newline \vspace*{-0.7cm}
+	
+	\noindent\hrulefill
+	
+	\spc
+	
+	\exo{16.9}{8}{20}
+	\\
+	We have $\dive \, \vec{F} = 3x^2 + 3y^2 + 3z^2$ and
+		\[
+			E = \{ (x ,y, z) \, : \, x^2 + y^2 + z^2 \leq 4 \} .
+		\]
+	By the Divergence Theorem,
+		\begin{align*}
+			\iint_S \vec{F} \, d\vec{S} = \iiint_E \dive \vec{F} \, dV &= 3 \iiint_E x^2 + y^2 + z^2 \, dV \\ 
+			&= 3 \int_0^\pi \int_0^{2\pi} \int_0^2 \rho^2 \rho \sin^2 (\phi ) \, d\rho d\theta d \phi \\ 
+			&= 3 \Big( \int_0^2 \rho^3 \, d\rho \Big) \Big( \int_0^{2\pi} \, d\theta \Big) \Big( \int_0^\pi \sin^2 (\phi ) \, d\phi \Big) \\ 
+			&= 12 \pi^2 .
+		\end{align*}
+
+	\spc
+	
+	\exo{16.9}{24}{10}
+	\\
+	Notice that
+		\[
+			2x + 2y + z^2 = \left\langle 2 , 2 , z \right\rangle \cdot \left\langle x , y , z \right\rangle = \vec{F} \cdot \vec{n}
+		\]
+	and $\left\langle x , y ,z \right\rangle = \vec{n}$ is a normal vector to the sphere because $x^2 + y^2 + z^2 = 1$. Therefore,
+		\[
+			\iint_S 2x + 2y + z^2 \, dS = \iint_S \vec{F} \cdot \vec{n} dS = \iint_S \vec{F} \cdot d\vec{S}
+		\]
+	because $d\vec{S} = \vec{n} dS$. Using the Divergence Theorem,
+		\[
+			\iint_S \vec{F} \cdot d \vec{S} = \iiint_E \dive \vec{F} \, dV 
+		\]
+	where $E = \{ (x, y , z) \, : \, x^2 +y^2 + z^2 \leq 1 \}$. Since $\dive \vec{F} = 1$, we get
+		\[
+			\iint_S \vec{F} \cdot d \vec{S} = \iiint_E 1 \, dV = \mathrm{Vol} \, (E) = \frac{4 \pi}{3} .
+		\]
+		
+	\spc 
+
+	\exo{16.9}{27}{20}
+	\\
+	By the Divergence Theorem, we have
+		\[
+			\iint_S \mathrm{curl}\, \vec{F} \cdot d \vec{S} = \iiint_E \mathrm{div}\, ( \mathrm{curl} \, \vec{F} ) \, dV .
+		\]
+	Now we know that $\mathrm{div}\, (\mathrm{curl} \vec{F} ) = 0$ and therefore
+		\[
+			\iiint_E \mathrm{div} \, (\mathrm{curl} \, \vec{F} )\, dV = 0 .
+		\]
+	
+\end{document}

@@ -1,0 +1,57 @@
+\input{../semesterTerm.tex}
+
+\begin{document}
+	\noindent \hrulefill \\
+	MATH-244 \semester \hfill Practice Problems Solutions\\
+	Section 15.7 \hfill Pierre-Olivier Paris{\'e} \\\vspace*{-1cm}
+	
+	\noindent\hrulefill
+	
+	\spc	
+
+	\exo{6}
+	\\
+	The cylindrical coordinates are $(r, \theta , z)$ and the transformations to the cartesian coordinates $(x, y, z)$ are $x = r \cos \theta$, $y = r \sin \theta$, and $z = z$. So if $\theta = \pi/6$, then $x = r (\sqrt{2}/{2})$ and $y = r (1/2)$. So
+		\begin{align*}
+		2x/\sqrt{2} = r = 2y \quad \Rightarrow \quad x/\sqrt{2} = y .
+		\end{align*}
+	So the surface described by the equation $\theta = \pi/6$ is the plane $x/\sqrt{2} - y = 0$.
+	
+	\spc
+	
+	\exo{8}
+	\\
+	The transformation from cylindrical coordinates to the cartesian coordinates are $x = r \cos \theta$, $y = r \sin \theta$, and $z = z$. Since $\sin \theta = y/r$, the equation $r = 2 \sin \theta$ becomes
+		\begin{align*}
+		r = 2y/r \quad \Rightarrow \quad r^2 = 2y .
+		\end{align*}
+	But $r^2 = x^2 + y^2$, and so replacing in the last equation, we obtain
+		\begin{align*}
+		x^2 + y^2 = 2y \quad \iff \quad x^2 + (y - 1)^2 = 1 .
+		\end{align*}
+	This last equation represents a cylinder of radius 1 with center at $(0, 1)$.
+	
+	\spc
+	
+	\exo{12}
+	\\
+	The inequalities $0 \leq \theta \leq \pi/2$ means that we are in the first octant and the eigth octant. The inequalities $r \leq z \leq 2$ means that the value for $z$ is positive and it lies between the equations $z = r$ and $z = 2$. Since $r = \sqrt{x^2 + y^2}$, then $z$ lies above the cone $z = \sqrt{x^2 + y^2}$. Thus the solid is a quarter of a cone.
+	
+	\spc
+	
+	\exo{20}
+	\\
+	In cylindrical coordinate, the solid $E$ has the following description:
+		\begin{align*}
+		E = \{ (r, \theta , z) \, : \, 1 \leq r \leq 4 , \, 0 \leq \theta \leq 2\pi , \, 0 \leq z \leq y + 4 \} .
+		\end{align*}
+	So the triple integral can be rewritten as
+		\begin{align*}
+		\iiint_E (x - y) \, dV &= \int_0^{2\pi} \int_1^4 \int_0^{r \sin \theta +4} r \cos \theta - r \sin \theta \, dz r dr d \theta \\
+		&= \int_0^{2\pi} \int_1^4 (\cos \theta - \sin \theta) (r \sin \theta + 4 ) r^2 \, dr d\theta \\
+		&= \int_0^{2\pi} \int_1^4 r^3 \cos \theta \sin \theta + 4r^2 \cos \theta - r^3 \sin^2 \theta - 4 r^2 \sin \theta \, dr d\theta \\
+		&= -255 \pi/4 .
+		\end{align*}
+
+
+\end{document}

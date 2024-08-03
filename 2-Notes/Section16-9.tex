@@ -1,0 +1,242 @@
+\documentclass[20pt,a4paper]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{titlesec}
+\usepackage{environ}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[colorlinks = true, linkcolor = black]{hyperref}
+\usepackage{xparse}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{wrapfig}
+\usepackage[capitalise]{cleveref}
+
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol}
+\usepackage[indent=0pt]{parskip}
+
+\newcommand{\spaceP}{\vspace*{0.5cm}}
+\newcommand{\Span}{\mathrm{Span}\,}
+\newcommand{\range}{\mathrm{range}\,}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\curl}{\mathrm{curl} \,}
+\newcommand{\hint}[1]{\scalebox{2}{$\displaystyle\int_{\scalebox{0.35}{$#1$}}$}\,}
+\newcommand{\hiint}[1]{\scalebox{2}{$\displaystyle\iint_{\scalebox{0.35}{$#1$}}$}\,}
+\newcommand{\hiiint}[1]{\scalebox{2}{$\displaystyle\iiint_{\scalebox{0.35}{$#1$}}$}\,}
+\renewcommand{\div}{\mathrm{div}\,}
+
+%% Redefining sections
+\newcommand{\sectionformat}[1]{%
+    \begin{tikzpicture}[baseline=(title.base)]
+        \node[rectangle, draw] (title) {#1};
+    \end{tikzpicture}
+    
+    \noindent\hrulefill
+}
+
+\newif\ifhNotes 
+
+\hNotesfalse
+
+\ifhNotes
+	\newcommand{\hideNotes}[1]{%
+	\phantom{#1}
+	}
+	\newcommand{\hideNotesU}[1]{%
+	\underline{\hspace{1mm}\phantom{#1}\hspace{1mm}}
+	}
+\else
+	\newcommand{\hideNotes}[1]{#1}
+	\newcommand{\hideNotesU}[1]{\textcolor{blue}{#1}}
+\fi
+
+% default values copied from titlesec documentation page 23
+% parameters of \titleformat command are explained on page 4
+\titleformat%
+    {\section}% <command> is the sectioning command to be redefined, i. e., \part, \chapter, \section, \subsection, \subsubsection, \paragraph or \subparagraph.
+    {\normalfont\large\scshape}% <format>
+    {}% <label> the number
+    {0em}% <sep> length. horizontal separation between label and title body
+    {\centering\sectionformat}% code preceding the title body  (title body is taken as argument)
+
+%% Set counters for sections to none
+\setcounter{secnumdepth}{0}
+
+%% Set the footer/headers
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{2pt}
+\lfoot{P.-O. Paris{\'e}}
+\cfoot{MATH 244}
+\rfoot{Page \thepage}
+
+%% Defining example environment
+\newcounter{example}[section]
+\NewEnviron{example}%
+	{%
+	\noindent\refstepcounter{example}\fcolorbox{gray!40}{gray!40}{\textsc{\textcolor{red}{Example~\theexample.}}}%
+	%\fcolorbox{black}{white}%
+		{  %\parbox{0.95\textwidth}%
+			{
+			\BODY
+			}%
+		}%
+	}
+
+\newcounter{theorem}
+% Theorem environment
+\NewEnviron{theorem}%
+	{%
+	\noindent\refstepcounter{theorem}\fcolorbox{gray!40}{gray!40}{\textsc{\textcolor{black}{Theorem~\theexample.}}}%
+	%\fcolorbox{black}{white}%
+		{  %\parbox{0.95\textwidth}%
+			{
+			\BODY
+			}%
+		}%
+	}
+
+\newcounter{definition}
+\NewEnviron{definition}%
+	{%
+	\noindent\refstepcounter{definition}\fcolorbox{gray!40}{gray!40}{\textsc{\textcolor{black}{Definition~\thedefinition.}}}%
+	%\fcolorbox{black}{white}%
+		{  %\parbox{0.95\textwidth}%
+			{
+			\BODY
+			}%
+		}%
+	}
+
+\NewEnviron{notes}%
+	{%
+	\noindent \fcolorbox{gray!40}{gray!40}{\textsc{\textcolor{blue}{Solution.}}}%
+	%\fcolorbox{black}{white}%
+		{  %\parbox{0.95\textwidth}%
+			{
+			\textcolor{blue}{%
+			\BODY
+			}
+			}%
+		}%
+	}
+%%% Ignorer les notes
+%\excludecomment{notes}
+
+%%%%
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+\vspace*{2.5cm}
+
+{\Huge \textsc{Math 244}}
+
+\vspace*{2cm}
+
+{\LARGE \textsc{Chapter 16}} 
+
+\vspace*{0.75cm}
+
+\noindent\textsc{Section 16.9: Divergence Theorem}
+
+\vspace*{0.75cm}
+
+\tableofcontents
+
+\vfill
+
+\noindent \textsc{Created by: Pierre-Olivier Paris{\'e}} \\
+\textsc{Fall 2023}
+\end{center}
+
+\newpage
+
+\section{Divergence in 3D}
+
+\begin{definition}
+If $\vec{F} = \left\langle P, Q, R \right\rangle$ is a vector field in 3D, then
+	\[
+		\div \vec{F} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} .
+	\]
+\end{definition}
+
+Another way to write $\curl \vec{F}$ is as followed. Define
+	\[
+		\vec{\nabla} = \left\langle \frac{\partial}{\partial x} , \frac{\partial}{\partial y} , \frac{\partial}{\partial z} \right\rangle \quad \Longrightarrow \quad \div \vec{F} = \vec{\nabla} \cdot \vec{F} .
+	\]
+
+\begin{example}
+Find the divergence of $\vec{F} = \left\langle xz , xyz , -y^2 \right\rangle$.
+\end{example}
+
+\begin{notes}
+
+\end{notes}
+
+\newpage 
+
+\begin{theorem}
+Let $\vec{F} = \left\langle P , Q, R \right\rangle$ and assume $P, Q, R$ have continuous second partial derivatives. Then 
+	$$
+	\div (\curl \vec{F}) = 0 .
+	$$
+\end{theorem}
+
+\vspace*{0.5cm}
+
+\begin{example}
+Show that $\vec{F} (x, y, z) = \left\langle xz , xyz , -y^2 \right\rangle$ can't be written as the curl of some other vector field.
+\end{example}
+
+\begin{notes}
+
+\end{notes}
+
+\newpage 
+
+\section{Divergence Theorem}
+
+\begin{theorem}
+Assume
+	\begin{itemize}
+	\item $S$ be a closed surface with positive orientation (outward orientation).
+	\item $\vec{F} = \left\langle P , Q, R \right\rangle$ with $P, Q, R$ having continuous partial derivatives.
+	\end{itemize}
+Then,
+	\[
+		\hiint{S} \vec{F} \cdot d \vec{S} = \hiiint{E} \div \vec{F} \, dV ,
+	\]
+where $E$ is the solid bounded by $S$.
+\end{theorem}
+
+\vspace*{0.3cm}
+
+\begin{example}
+Let $\vec{F} (x, y, z) = \left\langle xye^z , xy^2z^3, -ye^z \right\rangle$ and $S$ is the surface of the box bounded by the coordinates planes and the planes $x = 3$, $y= 2$, and $z = 1$. Compute the flux of $\vec{F}$ across $S$.
+\end{example}
+
+\begin{notes}
+
+\end{notes}
+
+\newpage 
+
+\phantom{2} 
+
+
+\end{document}
