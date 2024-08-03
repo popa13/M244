@@ -1,7 +1,7 @@
 # A note to the viewer
 You will find all the resources that I created while teaching Calculus VI (M244) at the University of Hawai'i at Manoa. You can see below a screenshot of the home page of the website I created for the class. The website can be accessed through this link: [https://mathopo.ca/courses-website/math-241/math-241](https://mathopo.ca/courses-website/math-244/math-244).
 
-![Home page](M244-WebsiteScreenshot.png)
+![Home page](M244-homepage.png)
 
 In the following note, I describe in more details each section of the website.
 
