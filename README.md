@@ -52,7 +52,7 @@ There was a homework assignment every week, except when there was an exam the ne
 
 I had three midterms and one final. Usually, the final is cumulative, but I would sometimes do the final on the last part of the class. 
 
-Also, when presenting the concepts of curl and divergence, I would present the really good [3Blue1Brown video](https://www.youtube.com/watch?v=rB83DpBJQsE). What I like about this video is it explains the concepts pretty well with great visuals, but also it explains well the intuition behind these two concepts. After showing that video in class, I start lecturing and present the exact formulas of the divergence and curl. Then, show them how to compute those quantities. This completes well the video from 3Blue1Brown.
+Also, when presenting the concepts of curl and divergence, I would present the really good [3Blue1Brown video](https://www.youtube.com/watch?v=rB83DpBJQsE). What I like about this video is it explains the concepts pretty well with great visuals, but also it explains well the intuition behind these two concepts. After showing that video in class, I start lecturing and present the exact formulas of the divergence and curl. Then, show them how to compute those quantities to complement the video from 3Blue1Brown.
 
 I hope this will help you plan you class. 
 
