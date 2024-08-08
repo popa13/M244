@@ -63,7 +63,14 @@ If you want to download all the files from this repository as a .zip on your com
 
 ![Step to download file](How-To-Download_as-Zipped.png)
 
-# Contat Info
+Here is a list of useful tools/material that used constantly in my classes:
+
+- Xournal++: [https://xournalpp.github.io/](https://xournalpp.github.io/).
+- Wacom tablet (medium): [https://www.wacom.com/en-ca/products/pen-tablets/wacom-intuos](https://www.wacom.com/en-ca/products/pen-tablets/wacom-intuos).
+- Desmos to plot graphs of functions: [https://www.desmos.com/](https://www.desmos.com/)
+- Desmos' YouTube Channel (to learn how to use the tools from Desmos): [https://www.youtube.com/@Desmos](https://www.youtube.com/@Desmos).
+
+# Contact Info
 You can reach me by email parisepierreolivier@gmail.com if you have any questions or if you would like to add your own contributions.
 Best of luck!
 
